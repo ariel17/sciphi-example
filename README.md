@@ -8,7 +8,7 @@ To test this application locally, run the following
 pip install -r requirements.txt
 
 # Launch
-uvicorn src.app:app
+python src/app.py
 ```
 [Visit here](https://r2r-docs.sciphi.ai/core-features/app) for more information on how to customize your application.
 
