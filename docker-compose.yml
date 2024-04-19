@@ -16,7 +16,8 @@ services:
     ports:
       - 8000:8000
     environment:
-      - OPENAI_API_KEY=openaiapikey
+      - CONFIDENTAI_API_KEY=${CONFIDENTAI_API_KEY}
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
       - POSTGRES_USER=vectordb
       - POSTGRES_PASSWORD=vectordb
       - POSTGRES_HOST=db
