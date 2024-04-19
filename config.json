@@ -13,7 +13,7 @@
     "provider": "litellm"
   },
   "logging_database": {
-    "provider": "local",
+    "provider": "postgres",
     "collection_name": "demo_logs",
     "level": "INFO"
   },
@@ -26,7 +26,7 @@
     }
   },
   "vector_database": {
-    "provider": "local",
+    "provider": "pgvector",
     "collection_name": "demo_vecs"
   },
   "app": {
