@@ -1,0 +1,23 @@
+---
+services:
+  db:
+    image: ankane/pgvector
+    ports:
+     - 5432:5432
+    restart: always
+    environment:
+      - POSTGRES_DB=vectordb
+      - POSTGRES_HOST_AUTH_METHOD=trust
+
+  app:
+    build: .
+    ports:
+      - 8000:8000
+    environment:
+      - OPENAI_API_KEY=daafsafdsafdsa
+      - POSTGRES_USER=postgres
+      - POSTGRES_HOST=db
+      - POSTGRES_PORT=5432
+      - POSTGRES_DBNAME=vectordb
+    depends_on:
+      - db
