@@ -16,6 +16,8 @@ services:
     ports:
       - 11434:11434
     restart: unless-stopped
+    environment:
+      - ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY}
     # https://github.com/ollama/ollama?tab=readme-ov-file#model-library
     tty: true
     volumes:
@@ -27,6 +29,8 @@ services:
   #   ports:
   #     - 11434:11434
   #   restart: unless-stopped
+  #   environment:
+  #   - ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY}
   #   tty: true
   #   volumes:
   #     - ./.ollama:/root/.ollama
