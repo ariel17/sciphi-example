@@ -8,7 +8,7 @@ COPY requirements.txt /app/requirements.txt
 RUN CMAKE_ARGS="-DLLAMA_CUDAS=on" pip install -r requirements.txt
 
 COPY src /app/src
-COPY *.json start.sh .
+COPY config-*.json start.sh .
 
 ENV OPENAI_API_KEY openaiapikey
 ENV CONFIDENTAI_API_KEY confidentaiapikey
