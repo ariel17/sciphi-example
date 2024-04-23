@@ -1,5 +1,7 @@
 # Queries
 
+SciPhi.ai original API definition can be found on `swagger.json`.
+
 ## Import examples
 
 Import Postman collection and environment to use with local SciPhi:
