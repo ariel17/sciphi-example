@@ -27,7 +27,7 @@
     }
   },
   "vector_database": {
-    "provider": "qdrant",
+    "provider": "pgvector",
     "collection_name": "demo_vecs"
   },
   "app": {

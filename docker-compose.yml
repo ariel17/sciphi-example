@@ -1,16 +1,5 @@
 ---
 services:
-  db:
-    image: ankane/pgvector
-    ports:
-     - 5432:5432
-    restart: unless-stopped
-    environment:
-      - POSTGRES_DB=vectordb
-      - POSTGRES_USER=vectordb
-      - POSTGRES_PASSWORD=vectordb
-      - POSTGRES_HOST_AUTH_METHOD=trust
-
   ollama:
     image: ollama/ollama
     ports:
@@ -56,6 +45,17 @@ services:
     restart: unless-stopped
     depends_on:
       - ollama
+
+  db:
+    image: ankane/pgvector
+    ports:
+     - 5432:5432
+    restart: unless-stopped
+    environment:
+      - POSTGRES_DB=vectordb
+      - POSTGRES_USER=vectordb
+      - POSTGRES_PASSWORD=vectordb
+      - POSTGRES_HOST_AUTH_METHOD=trust
 
   sciphi:
     build: .
