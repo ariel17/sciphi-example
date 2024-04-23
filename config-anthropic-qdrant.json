@@ -14,7 +14,7 @@
     "model_name": "claude-3-opus-20240229"
   },
   "logging_database": {
-    "provider": "qdrant",
+    "provider": "local",
     "collection_name": "demo_logs",
     "level": "INFO"
   },
