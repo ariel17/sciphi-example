@@ -8,10 +8,11 @@ COPY requirements.txt /app/requirements.txt
 RUN pip install -r requirements.txt
 
 COPY src /app/src
-COPY config.json start.sh .
+COPY *.json start.sh .
 
 ENV OPENAI_API_KEY openaiapikey
 ENV CONFIDENTAI_API_KEY confidentaiapikey
+ENV ANTHROPIC_API_KEY anthropicapikey
 ENV POSTGRES_DBNAME dbname
 ENV POSTGRES_USER username
 ENV POSTGRES_PASSWORD password
