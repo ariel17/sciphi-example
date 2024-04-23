@@ -21,6 +21,24 @@ services:
     volumes:
       - ./.ollama:/root/.ollama
 
+  # gpu enabled
+  # ollama:
+  #   image: ollama/ollama:roc
+  #   ports:
+  #     - 11434:11434
+  #   restart: unless-stopped
+  #   tty: true
+  #   volumes:
+  #     - ./.ollama:/root/.ollama
+  #   devices:
+  #     - /dev/kfd
+  #     - /dev/dri
+  #   deploy:
+  #     resources:
+  #       reservations:
+  #         devices:
+  #           - capabilities: ["gpu"]
+
   webui:
     image: ghcr.io/ollama-webui/ollama-webui:main
     volumes:
@@ -49,6 +67,8 @@ services:
       - POSTGRES_PORT=5432
       - POSTGRES_DBNAME=vectordb
       - CONFIG_PATH=config.json
+    volumes:
+      - ./.ollama:/opt/ollama
     depends_on:
       - db
       - ollama
