@@ -17,5 +17,6 @@ ENV POSTGRES_USER username
 ENV POSTGRES_PASSWORD password
 ENV POSTGRES_HOST localhost
 ENV POSTGRES_PORT 5432
+ENV CONFIG_PATH config.json
 
 CMD ["./start.sh"]
