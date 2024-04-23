@@ -1,7 +1,7 @@
 FROM python:3.12-slim as builder
 ENV PYTHONUNBUFFERED 1
 
-RUN apt-get update && apt-get install -y git cmake
+RUN apt-get update && apt-get install -y git gcc clang clang-tools cmake
 
 WORKDIR /app
 COPY requirements.txt /app/requirements.txt

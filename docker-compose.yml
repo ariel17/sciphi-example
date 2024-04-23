@@ -76,4 +76,3 @@ services:
       - ./.ollama:/opt/ollama
     depends_on:
       - db
-      - ollama
