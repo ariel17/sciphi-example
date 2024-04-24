@@ -8,7 +8,7 @@ Different modes:
 
 * Local with pgvector
 * Docker with pgvector (own infrastructure)
-* SciPhi infrastructure
+* SciPhi
 
 ### Required environment variables for all modes
 
@@ -51,7 +51,7 @@ $ export POSTGRES_DBNAME=vectordb
 $ ./start.sh
 ```
 
-### Docker
+### Docker with pgvector
 
 Modify the [docker-compose.yml](./docker-compose.yml) settings for the `sciphi`
 container. This repository contains different service combinations:
@@ -66,7 +66,7 @@ container. This repository contains different service combinations:
 $ docker compose up  # -d to detach
 ```
 
-### SciPhi with qdrant
+### SciPhi
 
 Add required keys in deployments config:
 
@@ -75,7 +75,7 @@ Add required keys in deployments config:
 * OPENAI_API_KEY
 * ANTHROPIC_API_KEY
 * CONFIDENT_API_KEY
-* CONFIG_PATH: `config-qdrant.json`. This configuration is specific for this
+* CONFIG_PATH: `config-sciphi.json`. This configuration is specific for this
   environment.
 
 ## How to run queries

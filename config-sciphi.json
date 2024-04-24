@@ -18,16 +18,10 @@
     "provider": "litellm"
   },
   "logging_database": {
-    "provider": "local",
-    "collection_name": "demo_logs",
-    "level": "INFO"
-  },
-  "ingestion":{
-    "provider": "local"
+    "provider": "sciphi"
   },
   "vector_database": {
-    "provider": "qdrant",
-    "collection_name": "demo_vecs"
+    "provider": "sciphi"
   },
   "app": {
     "max_logs": 100,
