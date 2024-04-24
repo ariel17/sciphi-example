@@ -26,7 +26,11 @@
     "provider": "pgvector",
     "collection_name": "demo_vecs"
   },
+  "ingestion": {
+    "provider": "local"
+  },
   "app": {
+    "rag_pipeline": "agent",
     "max_logs": 100,
     "max_file_size_in_mb": 100
   }

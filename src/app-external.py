@@ -1,16 +1,25 @@
 import os
 
-import uvicorn
 from r2r.main import E2EPipelineFactory, R2RConfig
 
 
 CONFIG_PATH = os.environ["CONFIG_PATH"]
+config = R2RConfig.load_config(CONFIG_PATH)
 
-# Creates a pipeline with default configuration
-# This is the main entry point for the application
-# The pipeline is built using the `config.json` file
-app = E2EPipelineFactory.create_pipeline(config=R2RConfig.load_config(CONFIG_PATH))
+rag_pipeline = config.app.get("rag_pipeline", "qna")
+if rag_pipeline == "qna":
+    from r2r.pipelines import QnARAGPipeline
+    rag_pipeline_impl = QnARAGPipeline
+elif rag_pipeline == "web":
+    from r2r.pipelines import WebRAGPipeline
+    rag_pipeline_impl = WebRAGPipeline
+elif rag_pipeline == "agent":
+    from r2r.pipelines import AgentRAGPipeline
+    rag_pipeline_impl = AgentRAGPipeline
+elif rag_pipeline == "hyde":
+    from r2r.pipelines import HyDEPipeline
+    rag_pipeline_impl = HyDEPipeline
+else:
+    raise ValueError(f"Invalid pipeline: {rag_pipeline}")
 
-if __name__ == "__main__":
-    # Run the FastAPI application using Uvicorn
-    uvicorn.run(app, host="0.0.0.0", port=8000)
+app = E2EPipelineFactory.create_pipeline(config=config, rag_pipeline_impl=rag_pipeline_impl)

@@ -43,14 +43,14 @@ Example:
 # Using Python >=3.12
 $ python3 -m venv env
 $ source env/bin/activate
-$ pip install -r requirements.txt
-$ export CONFIG_PATH="config-pgvector.json"
-$ export POSTGRES_USER=vectordb
-$ export POSTGRES_PASSWORD=vectordb
-$ export POSTGRES_HOST=localhost
-$ export POSTGRES_PORT=5432
-$ export POSTGRES_DBNAME=vectordb
-$ ./start.sh
+(env) $ pip install -r requirements.txt
+(env) $ export CONFIG_PATH="config-pgvector.json"
+(env) $ export POSTGRES_USER=vectordb
+(env) $ export POSTGRES_PASSWORD=vectordb
+(env) $ export POSTGRES_HOST=localhost
+(env) $ export POSTGRES_PORT=5432
+(env) $ export POSTGRES_DBNAME=vectordb
+(env) $ ./start.sh
 ```
 
 ### Docker with pgvector

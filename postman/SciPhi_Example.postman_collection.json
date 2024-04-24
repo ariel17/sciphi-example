@@ -1,8 +1,7 @@
 {
 	"info": {
 		"_postman_id": "3df41158-3d2e-4624-af3e-c4b1952ab914",
-		"name": "SciPhi R2R API",
-		"description": "The API documentation provided below outlines the default REST API specification for the deployed pipeline. This serves as a reference for the standard operations and endpoints that define interactions with the deployed pipeline API.",
+		"name": "SciPhi Example",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "2327056"
 	},
@@ -211,10 +210,12 @@
 							]
 						},
 						"url": {
-							"raw": "{{baseUrl}}/upload_and_process_file/",
+							"raw": "http://localhost:8000/upload_and_process_file/",
+							"protocol": "http",
 							"host": [
-								"{{baseUrl}}"
+								"localhost"
 							],
+							"port": "8000",
 							"path": [
 								"upload_and_process_file",
 								""
@@ -350,10 +351,12 @@
 							}
 						},
 						"url": {
-							"raw": "{{baseUrl}}/add_entry/",
+							"raw": "http://localhost:8000/add_entry/",
+							"protocol": "http",
 							"host": [
-								"{{baseUrl}}"
+								"localhost"
 							],
+							"port": "8000",
 							"path": [
 								"add_entry",
 								""
@@ -471,10 +474,12 @@
 							}
 						},
 						"url": {
-							"raw": "{{baseUrl}}/add_entries/",
+							"raw": "http://localhost:8000/add_entries/",
+							"protocol": "http",
 							"host": [
-								"{{baseUrl}}"
+								"localhost"
 							],
+							"port": "8000",
 							"path": [
 								"add_entries",
 								""
@@ -592,10 +597,12 @@
 							}
 						},
 						"url": {
-							"raw": "{{baseUrl}}/search/",
+							"raw": "http://localhost:8000/search/",
+							"protocol": "http",
 							"host": [
-								"{{baseUrl}}"
+								"localhost"
 							],
+							"port": "8000",
 							"path": [
 								"search",
 								""
@@ -712,10 +719,12 @@
 							}
 						},
 						"url": {
-							"raw": "{{baseUrl}}/eval",
+							"raw": "http://localhost:8000/eval",
+							"protocol": "http",
 							"host": [
-								"{{baseUrl}}"
+								"localhost"
 							],
+							"port": "8000",
 							"path": [
 								"eval"
 							]
@@ -821,10 +830,12 @@
 							}
 						],
 						"url": {
-							"raw": "{{baseUrl}}/filtered_deletion/?key=<string>&value=<boolean>",
+							"raw": "http://localhost:8000/filtered_deletion/?key=<string>&value=<boolean>",
+							"protocol": "http",
 							"host": [
-								"{{baseUrl}}"
+								"localhost"
 							],
+							"port": "8000",
 							"path": [
 								"filtered_deletion",
 								""
@@ -931,10 +942,12 @@
 							}
 						],
 						"url": {
-							"raw": "{{baseUrl}}/get_user_ids/",
+							"raw": "http://localhost:8000/get_user_ids/",
+							"protocol": "http",
 							"host": [
-								"{{baseUrl}}"
+								"localhost"
 							],
+							"port": "8000",
 							"path": [
 								"get_user_ids",
 								""
@@ -995,10 +1008,12 @@
 							}
 						],
 						"url": {
-							"raw": "{{baseUrl}}/get_user_documents/?user_id=<string>",
+							"raw": "http://localhost:8000/get_user_documents/?user_id=<string>",
+							"protocol": "http",
 							"host": [
-								"{{baseUrl}}"
+								"localhost"
 							],
+							"port": "8000",
 							"path": [
 								"get_user_documents",
 								""
