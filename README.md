@@ -83,10 +83,6 @@ Add required keys in deployments config:
 
 ![sciphi.ai deploys](./sciphi-deploys.png)
 
-* OPENAI_API_KEY
-* ANTHROPIC_API_KEY
-* CONFIDENT_API_KEY
-
 ## How to run queries
 
 See [postman/QUERIES.md](postman/QUERIES.md).
