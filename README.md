@@ -82,7 +82,6 @@ Add required keys in deployments config:
 * OPENAI_API_KEY
 * ANTHROPIC_API_KEY
 * CONFIDENT_API_KEY
-* CONFIG_PATH: `config.json`
 
 ## How to run queries
 
