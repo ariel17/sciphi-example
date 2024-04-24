@@ -1,37 +1,83 @@
-# README 
+# SciPhi AI example
 
-This directory contains the necessary files to deploy a basic RAG pipeline using the R2R framework with the SciPhi cloud platform.
+This is an example based on [SciPhi-AI/R2R-qna-rag-prebuilt](https://github.com/SciPhi-AI/R2R-qna-rag-prebuilt).
 
-To test this application locally, run the following
+## How to execute it
+
+Different modes:
+
+* Local with pgvector
+* Docker with pgvector (own infrastructure)
+* SciPhi infrastructure
+
+### Required environment variables for all modes
+
+* OPENAI_API_KEY
+* ANTHROPIC_API_KEY: [anthropic.com](https://www.anthropic.com)
+* CONFIDENTAI_API_KEY: For [Confident AI](https://confident-ai.com/)'s `deepeval` 
+  prompt evaluations/monitoring. An alternative for this is [Parea AI](https://parea.ai).
+
 ```bash
-# Install
-pip install -r requirements.txt
-
-# Launch
-python src/app.py
+$ export OPENAI_API_KEY=xxxxxx
+$ export ANTHROPIC_API_KEY=yyyyyy
+$ export CONFIDENT_API_KEY=zzzzzz
 ```
-[Visit here](https://r2r-docs.sciphi.ai/core-features/app) for more information on how to customize your application.
 
-## File Structure
+### Local with pgvector
 
-The main files in this directory are:
+[pgvector](https://github.com/pgvector/pgvector/) is a vectorial database based
+on PostgreSQL.
 
-- `src/app.py`: The main entry point for the application.
-- `config.json`: The configuration file used to control the deployment settings.
-- `requirements.txt`: The file specifying the Python dependencies required by the application.
+* CONFIG_PATH: JSON config file name.
+* POSTGRES_USER
+* POSTGRES_PASSWORD
+* POSTGRES_HOST
+* POSTGRES_PORT
+* POSTGRES_DBNAME
 
-## Application Overview
+Example: 
 
-The application is built using the `r2r` library and follows a pipeline-based architecture. The main entry point is in the `src/app.py` file, which creates a pipeline using the `E2EPipelineFactory.create_pipeline()` method. This method reads the configuration settings from the `config.json` file to set up the various components of the pipeline.
+```bash
+# Using Python >=3.12
+$ python3 -m venv env
+$ source env/bin/activate
+$ pip install -r requirements.txt
+$ export CONFIG_PATH="config-pgvector.json"
+$ export POSTGRES_USER=vectordb
+$ export POSTGRES_PASSWORD=vectordb
+$ export POSTGRES_HOST=localhost
+$ export POSTGRES_PORT=5432
+$ export POSTGRES_DBNAME=vectordb
+$ ./start.sh
+```
 
-The `config.json` file contains the following configuration options:
+### Docker
 
-- `database`: Specifies the vector database provider. In this case, the default is set to "sciphi". This results in a SciPhi managed Lantern database. Selecting an alternative provider like `qdrant` allows the developer to connect with their remote cloud offering.
-- `evals`: Specifies the evaluation provider (set to "deepeval") and the pipeline evaluation frequency.
-- `embedding`: Specifies the embedding provider (set to "openai"), the embedding model, dimension, and batch size.
-- `text_splitter`: Specifies the text splitting settings, including the chunk size and chunk overlap.
-- `language_model`: Specifies the language model provider. In this case, it is set to "litellm".
+Modify the [docker-compose.yml](./docker-compose.yml) settings for the `sciphi`
+container. This repository contains different service combinations:
 
-## Configuration
+* `config-pgvector.json`: Uses the pgvector `db` container. Uses OpenAI's
+  embeddings. See [Providers documentation](https://r2r-docs.sciphi.ai/providers/embeddings#available-models).
+* `config-local_embeddings-pgvector.json`: Uses pgvector `db` container and 
+  `sentence_transformers` with [HuggingFace models](https://huggingface.co/)
+  locally for embeddings.  
 
-The `config.json` file is used to control the deployment settings of the application. You can modify the configuration options in this file to customize the behavior of the pipeline components, such as the database provider, continuous evaluation settings, embedding settings, text splitter settings, and language model provider.
+```bash
+$ docker compose up  # -d to detach
+```
+
+### SciPhi with qdrant
+
+Add required keys in deployments config:
+
+![sciphi.ai deploys](./sciphi-deploys.png)
+
+* OPENAI_API_KEY
+* ANTHROPIC_API_KEY
+* CONFIDENT_API_KEY
+* CONFIG_PATH: `config-qdrant.json`. This configuration is specific for this
+  environment.
+
+## How to run queries
+
+See [postman/QUERIES.md](postman/QUERIES.md).
