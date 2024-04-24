@@ -11,7 +11,7 @@
 			"name": "RAG Completion",
 			"item": [
 				{
-					"name": "OpenAI - With embeddings",
+					"name": "OpenAI",
 					"request": {
 						"method": "POST",
 						"header": [
@@ -62,7 +62,43 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n  \"query\": \"Give me the ships and its captain names from star-trek. Which one do you prefer and why?\",\n  \"generation_config\": {\n    \"temperature\": 0.1,\n    \"top_p\": 1,\n    \"top_k\": 100,\n    \"max_tokens_to_sample\": 1024,\n    \"model\": \"anthropic/claude-3-opus\",\n    \"stream\": false,\n    \"skip_special_tokens\": false,\n    \"num_beams\": 1,\n    \"do_sample\": true,\n    \"add_generation_kwargs\": {},\n    \"generate_with_chat\": false\n  }\n}",
+							"raw": "{\n  \"query\": \"Give me the ships and its captain names from star-trek. Which one do you prefer and why?\",\n  \"settings\": {\n    \"embedding_settings\": {\n      \"do_chunking\": true,\n      \"do_upsert\": true\n    },\n    \"ingestion_settings\": {},\n    \"rag_settings\": {}\n  },\n  \"generation_config\": {\n    \"temperature\": 0.1,\n    \"top_p\": 1,\n    \"top_k\": 100,\n    \"max_tokens_to_sample\": 1024,\n    \"model\": \"anthropic/claude-3-opus\",\n    \"stream\": false,\n    \"skip_special_tokens\": false,\n    \"num_beams\": 1,\n    \"do_sample\": true,\n    \"add_generation_kwargs\": {},\n    \"generate_with_chat\": false\n  }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/rag_completion/",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"rag_completion",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Ollama - Local",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"query\": \"Give me the ships and its captain names from star-trek. Which one do you prefer and why?\",\n  \"settings\": {\n    \"embedding_settings\": {\n      \"do_chunking\": true,\n      \"do_upsert\": true\n    },\n    \"ingestion_settings\": {},\n    \"rag_settings\": {}\n  },\n  \"generation_config\": {\n    \"temperature\": 0.1,\n    \"top_p\": 1,\n    \"top_k\": 100,\n    \"max_tokens_to_sample\": 1024,\n    \"model\": \"ollama/llama3\",\n    \"stream\": false,\n    \"skip_special_tokens\": false,\n    \"num_beams\": 1,\n    \"do_sample\": true,\n    \"add_generation_kwargs\": {},\n    \"generate_with_chat\": false,\n    \"api_base\": \"http://localhost:11434\"\n  }\n}",
 							"options": {
 								"raw": {
 									"language": "json"
