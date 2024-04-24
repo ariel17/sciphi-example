@@ -1,0 +1,39 @@
+{
+  "embedding": {
+    "provider": "openai",
+    "search_model": "text-embedding-3-small",
+    "search_dimension": 1536,
+    "batch_size": 32,
+    "text_splitter": {
+      "type": "recursive_character",
+      "chunk_size": 512,
+      "chunk_overlap": 20
+    }
+  },
+  "evals": {
+    "provider": "deepeval",
+    "frequency": 1.0
+  },
+  "language_model": {
+    "provider": "llama-cpp",
+    "model_path": "/opt/ollama/models",
+    "model_name": "llama3"
+  },
+  "logging_database": {
+    "provider": "postgres",
+    "collection_name": "demo_logs",
+    "level": "INFO"
+  },
+  "vector_database": {
+    "provider": "pgvector",
+    "collection_name": "demo_vecs"
+  },
+  "ingestion": {
+    "provider": "local"
+  },
+  "app": {
+    "rag_pipeline": "qna",
+    "max_logs": 100,
+    "max_file_size_in_mb": 100
+  }
+}

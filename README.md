@@ -60,11 +60,15 @@ Uses `src/app-external.py` application.
 Modify the [docker-compose.yml](./docker-compose.yml) settings for the `sciphi`
 container. This repository contains different service combinations:
 
-* `config-pgvector.json`: Uses the pgvector `db` container. Uses OpenAI's
-  embeddings. See [Providers documentation](https://r2r-docs.sciphi.ai/providers/embeddings#available-models).
-* `config-local_embeddings-pgvector.json`: Uses pgvector `db` container and 
-  `sentence_transformers` with [HuggingFace models](https://huggingface.co/)
-  locally for embeddings.  
+* `config-litellm-pgvector.json`: Uses the pgvector `db` container and `litellm`
+  as LLM provider (proxy to providers). Uses OpenAI's embeddings. See
+  [Providers documentation](https://r2r-docs.sciphi.ai/providers/embeddings#available-models).
+* `config-litellm-local_embeddings-pgvector.json`: Uses pgvector `db` container,
+  `litellm` as proxy providers and `sentence_transformers` with
+  [HuggingFace models](https://huggingface.co/) locally for embeddings.  
+* `config-llama-cpp-pgvector.json`: Uses the pgvector `db` container and `llama-cpp`
+  as LLM provider, using local [Ollama](https://ollama.com/library) models. Uses
+  OpenAI's embeddings.
 
 ```bash
 $ docker compose up  # -d to detach
