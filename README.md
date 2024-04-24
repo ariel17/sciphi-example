@@ -25,6 +25,8 @@ $ export CONFIDENT_API_KEY=zzzzzz
 
 ### Local with pgvector
 
+Uses `src/app-external.py` application.
+
 [pgvector](https://github.com/pgvector/pgvector/) is a vectorial database based
 on PostgreSQL.
 
@@ -53,6 +55,8 @@ $ ./start.sh
 
 ### Docker with pgvector
 
+Uses `src/app-external.py` application.
+
 Modify the [docker-compose.yml](./docker-compose.yml) settings for the `sciphi`
 container. This repository contains different service combinations:
 
@@ -68,8 +72,8 @@ $ docker compose up  # -d to detach
 
 ### SciPhi
 
-This environment uses the `config.json` file since it is expected in their
-infrastructure.
+This environment uses the `config.json` and `src/app.py` files since those are
+expected in their infrastructure.
 
 Add required keys in deployments config:
 
