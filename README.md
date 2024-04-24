@@ -68,6 +68,9 @@ $ docker compose up  # -d to detach
 
 ### SciPhi
 
+This environment uses the `config.json` file since it is expected in their
+infrastructure.
+
 Add required keys in deployments config:
 
 ![sciphi.ai deploys](./sciphi-deploys.png)
@@ -75,8 +78,7 @@ Add required keys in deployments config:
 * OPENAI_API_KEY
 * ANTHROPIC_API_KEY
 * CONFIDENT_API_KEY
-* CONFIG_PATH: `config-sciphi.json`. This configuration is specific for this
-  environment.
+* CONFIG_PATH: `config.json`
 
 ## How to run queries
 
