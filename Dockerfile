@@ -21,6 +21,7 @@ COPY config*.json start.sh ./
 ENV OPENAI_API_KEY openaiapikey
 ENV CONFIDENTAI_API_KEY confidentaiapikey
 ENV ANTHROPIC_API_KEY anthropicapikey
+ENV SERPER_API_KEY serperapikey
 ENV POSTGRES_DBNAME dbname
 ENV POSTGRES_USER username
 ENV POSTGRES_PASSWORD password
