@@ -57,8 +57,8 @@ $ source env/bin/activate
 
 Uses `src/app-external.py` application.
 
-Modify the [docker-compose.yml](./docker-compose.yml) settings for the `sciphi`
-container. This repository contains different service combinations:
+Modify the [docker/docker-compose.yml](docker/docker-compose.yml) settings for
+the `sciphi` container. This repository contains different service combinations:
 
 * `config-litellm-pgvector.json`: Uses the pgvector `db` container and `litellm`
   as LLM provider (proxy to providers). Uses OpenAI's embeddings. See
@@ -71,7 +71,7 @@ container. This repository contains different service combinations:
   OpenAI's embeddings.
 
 ```bash
-$ docker compose up  # -d to detach
+$ docker compose -f docker/docker-compose.yml up  # -d to detach
 ```
 
 ### SciPhi
