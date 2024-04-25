@@ -71,7 +71,11 @@ the `sciphi` container. This repository contains different service combinations:
   OpenAI's embeddings.
 
 ```bash
+# Run all containers
 $ docker compose -f docker/docker-compose.yml up  # -d to detach
+
+# Run only sciphi-related containers
+$ docker compose -f docker/docker-compose.yml up sciphi  # -d to detach
 ```
 
 ### SciPhi
