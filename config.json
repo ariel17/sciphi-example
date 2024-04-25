@@ -3,7 +3,7 @@
     "provider": "local"
   },
   "app": {
-    "rag_pipeline": "agent"
+    "rag_pipeline": "qna"
   },
   "logging_database": {
     "provider": "sciphi"
