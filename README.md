@@ -76,6 +76,9 @@ $ docker compose -f docker/docker-compose.yml up  # -d to detach
 
 ### SciPhi
 
+:warning: This provider requires that no Docker-related files to be present in
+the root path.
+
 This environment uses the `config.json` and `src/app.py` files since those are
 expected in their infrastructure.
 
